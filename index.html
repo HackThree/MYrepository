@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/1d21732f61.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
   <title>Document</title>
-  <!-- <style>
+  <style>
     #save-me:hover{
       scale: 1.01;
       transition: 1s scale linear;
+    }
+    #save-table{
+      transform: translate(0px,-2px);
+      margin: auto !important;
     }
     .card{
       position:relative;
@@ -20,7 +23,7 @@
     #contact{
       margin: auto !important;
     }
-    /*@media screen and (min-width:775px) {
+    @media screen and (min-width:1100px) {
       #contact{
         width: 50% !important;
         margin: auto !important;
@@ -29,165 +32,581 @@
         width: 40% !important;
         margin: auto !important;
       }
-    }*/
-  </style> -->
-  <style>
-    #row{
-      margin-top:15px !important;
     }
-    @media screen and (min-width:600px) {
-      #row{
+    @media screen and (max-width:800px) {
+      #contact{
+        width: auto !important;
+        margin: 0 !important;
+      }
+      #myrow{
+        width: auto !important;
+        margin: 0 !important;
+        height: auto !important;  
+      }
+
+    }
+    li:not(#none,#me){
+      font-weight: bolder;
+      cursor: pointer;
+      color: black !important;
+      text-transform: uppercase;
+      background-color:rgba(113, 113, 113, 0.518);
+      padding:4px;
+      border-radius:10px;
+    }
+    nav{
+      background-color: rgb(255, 174, 0);
+      padding-bottom: 0;
+      padding: 0 !important;
+      border-radius: 1px;
+      border-bottom: 2px solid black;
+      height: 50px !important;
+    }
+    body{
+      margin:0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .home{
+      animation: scaling 3s infinite linear;
+    }
+
+    #foodbtn,#hfoodbtn,#drinkbtn{
+      display: block !important;
+    }
+
+    
+
+    
+    @media screen and (max-width:1000px) {
+      #drinktable{
+        display: none;
+      }
+
+      #drinkbtn{
+        display: none !important;
+      }
+
+      #foodbtn{
+        display: none !important;
+      }
+      #hfoodbtn{
+        display: none !important;
+      }
+
+      #menu2{
+        display: block !important;
+      }
+      
+      #foodtable{
+        display: none;
+      }
+      #hfoodtable{
+        display: none;
+      }
+
+      #nav1{
+        width: 100%;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+
+      li{
+        display: none;
+      }
+      #me{
+        display: block;
+        font-size: 19px;
+      }
+
+      .home{
+        width: 100%;
+        height: 300px !important;
+      }
+
+      h1{
+        margin: 10px !important;
+      }
+
+      #col1{
+        width: 90%;
         margin: auto;
-        width: 600px;
-      }
-      #save-contact{
-        width: 300px !important;
-      }
-      #save-contact{
-        display: flex;
-        justify-content: center;
-      }
-    }
-    a{
-      color:black;
-    }
-    @media screen and (max-width:599px) {
-      #row{
-        margin-top:5px !important;
-      }
-      svg{
-        position: relative !important;
-        top:-80px !important; 
-      }
-    }
-
-    @media  screen and (max-width:599px) {
-      svg{
-        position: relative !important;
-        top:-112px !important; 
-      }
-    }
-
-    @media screen and (max-width:385px){
-      a{
-        font-size: 17px !important;
-        font-weight: bolder !important;
-      }
-      i:not(.fa-user){
-        font-size:30px !important;
-      }
-      svg{
-        position: relative;
-        top: -70px !important; 
-      }
-    }
-    @media screen and (min-width: 383px) and (max-width: 480px) {
-      svg{
-        position: relative;
-        top: -50px !important; 
-      }
-      @media screen and (max-width:483px) {
-        svg{
-          position: relative !important;
-          top: -90px !important; 
-        }
-      }
-      @media screen and (max-width:389px) and (min-width:380px) {
-        svg{
-          position: relative !important;
-          top: -70px !important; 
-        }
-      }
-    }
-    @media (max-width:383px) {
-      svg{
-        position: relative !important;
-        top: -80px !important; 
-      }
-    }
-
-    @media screen and (max-width:361px){
-      svg{
-        position: relative !important;
-        top: -65px !important; 
+        margin-top: 10px;
       }
 
-      a{
-        font-size: 14px !important;
-        font-weight: bolder !important;
+      #nav2{
+        display: block !important;
+        background-color: orange !important;
       }
+
     }
 
-    @media screen and (max-width:540px) {
-      #title{
-        font-size: 12px !important;
-      }
-    }
 
-    @media screen and (max-width:354px){
-      #title{
-        font-size: 10px !important;
+    @media screen  and (max-width:460px) {
+      .home{
+        height: 150px !important;
       }
-    }
+      @media screen and (max-width:220px) {
+        @media screen  and (max-width:460px) {
+          .home{
+            height: 100px !important;
+          }
+      }
+    }}
+
   </style>
 </head>
-<body class=" bg-white-subtle" style="height: 900px;overflow-x:hidden;">
- <div class="row position-sticky"  id="row">
-  <div class="col-12">
-    <div class=" card z-3 shadow-lg w-auto h-auto rounded-5 ms-1" id="contact" style="width:auto;border-bottom:rgb(130, 130, 130) solid 3px;">
-      <div class="rounded-4 h-auto">
-        <div style="overflow: hidden;height:600px;">
-          <img class="card-img card-img-top shadow rounded-5" id="img" src="https://cdn.hihello.me/v/b82a1c33-ae8a-4175-a441-4980352998b1.png-large-preserve-ratio" height="400px">
-          <svg class="card-wavestyled_Wave-appsc-4t6hon-0 eVOubz WaveHeaderstyledDivider-app_sc-1ootntz-2 kvRDlA position-relative" style="top:-110px;" preserveAspectRatio="xMinYMax meet" viewBox="0 0 246 57" xmlns="http://www.w3.org/2000/svg" fill="transparent">
-            <path d="M 214.7168,6.1113281 C 195.65271,5.9023124 172.37742,11.948182 137.87305,32.529297 110.16613,49.05604 86.980345,56.862784 65.015625,57 H 65 v 1 H 246 V 11.453125 C 236.0775,8.6129313 226.15525,6.2367376 214.7168,6.1113281 Z" fill="#ffffff" clip-rule="evenodd" fill-rule="evenodd"></path>
-            <path d="M 0,35.773438 V 58 H 65 L 64.97852,57 C 43.192081,57.127508 22.605139,49.707997 0,35.773438 Z " fill="#ffffff" clip-rule="evenodd" fill-rule="evenodd"></path>
-            <path fill="#628AF8" clip-rule="evenodd" fill-rule="evenodd" d="m 0,16.7221 v 19.052 C 45.4067,63.7643 82.6667,65.4583 137.873,32.5286 193.08,-0.401184 219.54,3.87965 246,11.4535 V 6.51403 C 185.24,-16.8661 135.913,29.331 97.6933,40.8564 59.4733,52.3818 33.6467,44.1494 0,16.7221 Z "></path>
-          </svg>
-        </div>
-        <div class="card-body z-3  border-dark" style="position: relative;top:-150px;margin-bottom:-120px;">
-        <div class="card-title text-center fs-2"><b><span id="char"  style="color:#648cfc">M</span>ohammed <span id="char" style="color:#648cfc">E</span>l <span id="char" style="color:#648cfc">M</span>ontaser</b></div>
-        <ul class="card-body">
-          <h5>Entrepreneur</h5>
-          <br>
-          <li class="card-link" style="list-style: none;">
-            <i class="fa-sharp fa-solid fa-envelope text-primary bg-primary-subtle rounded-circle" style="font-size:40px;vertical-align:middle;"></i>
-            <a href="mailto:wassimelbachiri38@gmail.com" style="font-weight: bolder;font-size:18px;text-decoration:none;vertical-align: middle;">&numsp;wassimelbachiri38@gmail.com</a>
-          </li><br>
-          <li class="card-link" style="list-style: none;">
-            <i class="fa-sharp fa-solid fa-phone  text-primary bg-primary-subtle rounded-circle" style="font-size:40px;vertical-align:middle;"></i>
-            <a href="tel:+212689387990" style="font-weight: bolder;font-size:18px;text-decoration:none;vertical-align: middle;">&numsp;+212 689387990</a>
-          </li><br>
-          <li class="card-link" style="list-style: none;">
-            <i class="fa-brands fa-facebook text-primary bg-primary-subtle rounded-circle" style="font-size:40px;vertical-align:middle;"></i>
-            <a href="https://web.facebook.com/index.php?_rdc=1&_rdr" style="font-weight: bolder;font-size:18px;text-decoration:none;">&numsp;Wsm Eb</a>
-          </li><br>
-          <li class="card-link" style="list-style: none;">
-            <i class="fa-brands fab fa-instagram text-primary bg-primary-subtle rounded-circle" style="font-size:38px;vertical-align:middle;"></i>
-            <a href="https://www.instagram.com/wassim_eb/?__coig_restricted=1" style="font-weight: bolder;font-size:18px;text-decoration:none;vertical-align: middle;">&numsp;wassim_eb</a>
-          </li><br>
-          <li class="card-link" style="list-style: none;">
-            <i class="fa-brands fa-linkedin-in text-primary bg-primary-subtle rounded-circle" style="font-size:38px;vertical-align:middle;"></i>
-            <a href="https://www.linkedin.com/feed/" style="font-weight: bolder;font-size:18px;text-decoration:none;vertical-align: middle;">&numsp;Wassim Elbachiri</a>
+<body class=" bg-dark">
+
+  <nav class=" navbar navbar-expand-lg fixed-top" id="nav1">
+    <img class=" navbar-brand me-5" src="images/logo.png" width="50px" style="border-radius: 50%;cursor:pointer;margin-left:20px;" id="menu">
+    <ul class=" navbar-nav nav container-fluid">
+      <li class=" nav-item" style="color:aliceblue;margin-left:222px;" id="li-money"><img src="images/wallet.png" width="17px" alt="">60</li>
+      <li class=" nav-item" style="color:aliceblue"><img src="images/group.png" alt="" width="17px"> dev 102</li>
+      <li class=" nav-item" ><img src="images/bprofile.png" width="24px" alt="" style="margin-right: 10px;">wassim</li>
+      <li id="none"></li>
+    </ul>
+  </nav>
+  <!--nav 2-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="display: none; background-color:orange;z-index:100;" id="nav2">
+    <div class="container-fluid">
+      <img src="images/logo.png" alt="logo" width="30px" style="border-radius: 50%;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar navbar-nav me-auto mb-2 mb-lg-0" style="background-color: orange;">
+          <li class="nav-item" id="me">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item" id="me">
+            <a class="nav-link" href="#">Orders</a>
+          </li>
+          <li class="nav-item" id="me">
+            <a class="nav-link" href="index.html#menus">Menu</a>
+          </li>
+          <li class="nav-item" id="me">
+            <a class="nav-link" href="about_page.html">About</a>
+          </li>
+          <li class="" id="me">
+            <table style="width: 400px;">
+              <tr>
+                <th style="width: 30px;" ></th>
+                <th style="width: 70px;"><span id="li-money"><img src="images/wallet.png" alt="" width="17px">60</span></th>
+                <th style="width: 100px;"><span ><img src="images/group.png" alt="" width="17px">Dev102</span></th>
+                <th style="width: 100px;"><span><img src="images/bprofile.png" alt="" width="24px">ouassim</span></th>
+              </tr>
+            </table>
           </li>
         </ul>
       </div>
     </div>
-  </div>
- </div>
- <div class="row fixed-bottom mb-2">
-  <div class="col-2"></div>
-  <div class=" col-7 fixed-bottom m-auto" style="position: relative ;bottom:30px;" id="save-contact">
-    <a href="contact.vcf" download="Contact.vcf" id="ahref"  class="btn btn-primary rounded-5 w-100 p-2">
-      <i class="fa-solid fa-user" style="font: 18px;"></i>
-      <b> Save Contact</b>
-    </a>
-  </div>
-  <div class="col-2"></div>
- </div>
- <div class="row fixed-bottom b  text-center mt-3" style="margin: auto;border-radius: 5px;background-color:#648cfc">
-  <div class="col-12">
-    <a href="#" id="title" style="text-decoration: none;color:rgb(255, 255, 255);font-size:17px;font-weight:bolder;opacity:0.9;" rel="noopener noreferrer" target="_blank" class="typography__Typography-card__sc-18nplck-0 cardstyled__Watermark-card__sc-rrby45-2 hPWhHy cwIISb mdc-typography--body1">Une gratuite carte de visite numérique de KoulchiDigital</a>
-  </div>
- </div>
+  </nav>
+  <form action="">
+    <section>
+      <img src="images/home.jpg" alt="" width="100%" height="600px"  class="home">
+    </section>
+    <section style="padding-bottom:50px;">
+      <h1 style="text-align: center;margin-top:30px;color:wheat;text-decoration:underline" id="menus">Our Menu</h1>
+      <!--Alert_success-->
+      <div class="row mx-3 fixed-bottom" style="z-index:100">
+        <div class="col-12" style="width: 100%;">
+            <div class=" alert alert-success" id="alert">Proccessing Succesfuly</div>
+        </div>
+      </div>
+  
+      <!--Alert_danger-->
+      <div class="row mx-3 fixed-bottom" style="z-index:100">
+        <div class="col-12" style="width: 100%;">
+          <div class=" alert alert-danger" id="alert_danger">Proccessing Falied! (Your Money is Not Enough To continue Purching).</div>
+        </div>
+      </div>
+      <div class="row mx-2">
+        <div class="col-4" id="col1">
+          <div class="card bg-white">
+            <img src="images/drinks.jpg" class=" card-img" alt="">
+            <div class=" card-body">
+              <h2 class=" card-title text-center">Drinks</h2>
+            </div>
+            <div class=" card-footer">
+              <div class=" btn btn-secondary container-fluid"  id="drinkbtn">View Menu</div>
+  
+              <!--drop down 2-->
+              <div style="display:none;border:none;padding:0;margin:0;width:auto" id="menu2">
+                <div class="btn-group container-fluid">
+                  <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>View Menu
+                  </button>
+                  <ul class="dropdown-menu bg-secondary">
+                    <li class=" dropdown-item">
+                      <table class=" table table-light text-dark table-responsive  table-striped table-borderless" style="width: 100%;border:none;padding:0;margin:0">
+                        <thead>
+                          <tr>
+                            <th>command</th>
+                            <th>price(DH)</th>
+                            <th>ordering</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img src="images/coffe.jpg" width="30px" alt="" style="border-radius: 50%;"> <b>Coffe</b>
+                            </td>
+                            <td>5</td>
+                            <td>
+                              <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img src="images/orangejuice.jpg" alt="" width="30px" style="border-radius: 50%;"> <b> O-Juice</b>
+                            </td>
+                            <td>
+                              15
+                            </td>
+                            <td>
+                              <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4" id="col1">
+          <div class="card bg-white">
+            <img src="images/fastfood.jpg" class=" card-img" alt="">
+            <div class=" card-body">
+              <h2 class=" card-title text-center">Fast Food</h2>
+            </div>
+            <div class=" card-footer">
+              <div class=" btn btn-secondary container-fluid"  id="foodbtn">View Menu</div>
+              <!--drop down 2-->
+              <div style="display:none;border:none;padding:0;margin:0;width:auto" id="menu2">
+                <div class="btn-group container-fluid">
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>View Menu
+                </button>
+                <ul class="dropdown-menu bg-secondary">
+                  <li class=" dropdown-item">
+                    <table class=" table table-light text-dark table-responsive  table-striped table-borderless" style="width: 100%;border:none;padding:0;margin:0">
+                      <thead>
+                        <tr>
+                          <th>command</th>
+                          <th>price(DH)</th>
+                          <th>ordering</th>
+                        </tr>
+                      </thead>
+    
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src="images/burger.jpg" width="30px" alt="" style="border-radius: 50%;"><b>Burger</b>
+                          </td>
+                          <td>20</td>
+                          <td>
+                            <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="images/pizza.jpg" alt="" width="30px" style="border-radius: 50%;">  <b>Pizza</b>
+                          </td>
+                          <td>
+                            50
+                          </td>
+                          <td>
+                            <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4" id="col1">
+          <div class="card bg-white">
+            <img src="images/hfood.jpg" class=" card-img" alt="">
+            <div class=" card-body">
+              <h2 class=" card-title text-center">Healthy Food</h2>
+            </div>
+            <div class=" card-footer">
+              <div class=" btn btn-secondary container-fluid"  id="hfoodbtn">View Menu</div>
+              <!--drop down 2-->
+              <div style="display:none;border:none;padding:0;margin:0;width:auto" id="menu2">
+                <div class="btn-group container-fluid">
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>View Menu
+                </button>
+                <ul class="dropdown-menu bg-secondary">
+                  <li class=" dropdown-item">
+                    <table class=" table table-light text-dark table-responsive  table-striped table-borderless" style="width: 100%;border:none;padding:0;margin:0">
+                      <thead>
+                        <tr>
+                          <th>command</th>
+                          <th>price(DH)</th>
+                          <th>ordering</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src="images/salade.jpg" width="30px" alt="" style="border-radius: 50%;">  <b>salade</b>
+                          </td>
+                          <td>30</td>
+                          <td>
+                            <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="chek.jpg" alt="" width="30px" style="border-radius: 50%;">  <b>chekin</b> 
+                          </td>
+                          <td>
+                            75
+                          </td>
+                          <td>
+                            <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2 mx-2">
+          <div class="col-4">
+            <div style="border:2px solid gray;height:auto" id="drinktable">
+              <table class=" table text-dark  table-light table-striped">
+                <thead>
+                  <th>command</th>
+                  <th>Price(DH)</th>
+                  <th>Ordering</th>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                </td>
+                <td><img src="images/coffe.jpg" alt="" width="40px" style="border-radius:50%;"><b> Coffe</b></td>
+                <td>5</td>
+                <td>
+                  <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                </td>
+                    <tr>
+                    </td>
+                    <td><img src="images/orangejuice.jpg" alt="" width="40px" style="border-radius:50%;"><b>Orange Juice</b></td>
+                    <td>15</td>
+                    <td>
+                      <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                    </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="border:2px solid gray;height:auto" id="foodtable">
+              <table class=" table text-dark  table-light table-striped">
+                <thead>
+                  <th>command</th>
+                  <th>Price(DH)</th>
+                  <th>Ordering</th>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                </td>
+                <td><img src="images/burger.jpg" alt="" width="40px" style="border-radius:50%;"> <b> Burger</b></td>
+                <td>25</td>
+                <td>
+                  <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                </td>
+                    <tr>
+                    </td>
+                    <td><img src="images/pizza.jpg" alt="" width="40px" style="border-radius:50%;"> <b>Pizza</b></td>
+                    <td>50</td>
+                    <td>
+                      <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                    </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="border:2px solid gray;height:auto" id="hfoodtable">
+              <table class=" table text-dark  table-light table-striped">
+                <thead>
+                  <th>command</th>
+                  <th>Price(DH)</th>
+                  <th>Ordering</th>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                </td>
+                <td><img src="images/salade.jpg" alt="" width="40px" style="border-radius:50%;"><b>Salade</b></td>
+                <td>30</td>
+                <td>
+                  <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                </td>
+                    <tr>
+                    </td>
+                    <td><img src="images/chek.jpg" alt="" width="40px" style="border-radius:50%;"><b>Chicken with salade</b></td>
+                    <td>75</td>
+                    <td>
+                      <input type="submit" class="btn btn-danger" id="order-1" value="Order">
+                    </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  <footer style="height:300px;width:100%;background-color:black;">
+
+  </footer>
+  <script>
+    let menu = document.getElementById('menu');
+    let table = document.createElement("div");
+
+    // creating home link
+    let home = document.createElement("a");
+    home.href = 'index.html'
+    home.innerHTML = 'Home';
+    home.style.cssText = 'color:orange;font-weight:bolder;margin-left:60px;font-size:20px;'
+    table.appendChild(home)
+
+    // creating My_Orders link
+    let about = document.createElement('a')
+    about.href = 'orders.html'
+    about.innerText = 'Orders'
+    about.style.cssText = 'color:white;font-weight:bolder;font-size:20px;position:relative;left:-60px;top:60px'
+    table.appendChild(about)
+
+    // Creating Menu link
+    let history = document.createElement("a")
+    history.href = '#menus'
+    history.innerText = 'Menu'
+    history.style.cssText = 'color:white;font-weight:bolder;;font-size:20px;position:relative;left:-120px;top:120px'
+    table.append(history)
+
+    // creating About
+
+    let a = document.createElement("a")
+    a.innerText = 'About'
+    a.href = 'about_page.html'
+    a.style.cssText = 'color:white;font-weight:bolder;text-decoration:underline;font-size:20px;position:relative;left:-180px;top:180px;'
+    table.append(a)
+
+    menu.onmouseover = () => {
+      table.style.display = 'block'
+      table.style.cssText = 'width:200px;height:250px;border-radius:3px;position:fixed;top:49px;left:10px;border:1px solid orange;padding:5px;border-top-right-radius:40px;border-bottom-left-radius:40px;background-color:#2D2727;';
+      document.body.append(table)
+    }
+    table.onmouseleave = () => {
+      table.style.display = 'none'
+    }
+
+    // drinks table
+    let drink_btn = document.getElementById("drinkbtn")
+    drink_btn.onclick = () => {
+      document.getElementById('drinktable').style.cssText = 'display:block;'
+    }
+
+    document.getElementById('drinktable').onmouseleave = () => {
+      document.getElementById('drinktable').style.cssText = 'display:none;'
+    }
+
+    // fast food table
+
+    let food_btn = document.getElementById('foodbtn')
+    food_btn.onclick = () => {
+      document.getElementById("foodtable").style.cssText = 'display:block;'
+    }
+    document.getElementById("foodtable").onmouseleave = () => {
+      document.getElementById('foodtable').style.cssText = 'display:none;'
+    }
+
+    // health food table
+
+    let hfood_btn = document.getElementById('hfoodbtn')
+    hfood_btn.onclick = () => {
+      document.getElementById("hfoodtable").style.cssText = 'display:block;'
+    }
+    document.getElementById("hfoodtable").onmouseleave = () => {
+      document.getElementById('hfoodtable').style.cssText = 'display:none;'
+    }
+
+    // onload window
+
+    window.onload = () => {
+      let dtable = document.getElementById("drinktable");
+      let ftable = document.getElementById("foodtable");
+      let hftable = document.getElementById("hfoodtable");
+      dtable.style.display = 'none';
+      ftable.style.display ='none';
+      hftable.style.display = 'none';
+    }
+    // buying
+    let order1 = document.querySelectorAll("#order-1");
+    let ask;
+    let order_name = [];
+    let alerts = document.getElementById("alert");
+    alerts.style.display = 'none';
+    let alert_danger = document.getElementById("alert_danger");
+    alert_danger.style.display = 'none';
+    let result = 0;
+      order1.forEach(
+        (item) => {
+          item.onclick = () => {
+            ask = confirm(`are you Sure You want to buy ${item.parentNode.previousSibling.previousSibling.parentNode.firstElementChild.lastElementChild.innerHTML}  the price is ${item.parentNode.previousSibling.previousSibling.innerHTML} Dh`);
+            if(Number(document.getElementById("li-money").lastChild.textContent)>= Number(item.parentNode.previousSibling.previousSibling.textContent)){
+              if(ask === true){
+                order_name.push(item.parentNode.previousSibling.previousSibling.parentNode.firstElementChild.lastElementChild.innerHTML)
+                setTimeout(() => {
+                  alerts.style.display = 'block';
+                },1)
+              }else{
+                console.warn("iwa sagh michida3wan")
+              }setTimeout(() => {
+                  alerts.style.display = 'none';
+              },4000);
+              result = item.parentNode.previousSibling.previousSibling.textContent;
+              document.getElementById("li-money").lastChild.textContent -= result;
+            }else{
+              if(ask===false){
+                console.warn("waghak bo tmnyath arhaj")
+              }else{
+                setTimeout(() => {
+                  alert_danger.style.display = 'block';
+                },10)
+                setTimeout(() => {
+  
+                  alert_danger.style.display = 'none';
+                },4000)
+              }
+            }
+          }
+        }
+      )
+  </script>
 </body>
 </html>
